@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<title>{{ tcc.titulo }}
+</title>
+<meta charset="UTF-8">
+{% endblock head %}
+
+{% block content %}
+
+
+<nav  style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div>
+    <a href="#" onclick="" title="close menu">
+    </a>
+    <img src="{{ tcc.autor.foto.url}}" style="width:45%;"><br><br>
+    <h4><b>{{ tcc.autor.nome}}</b> {{ tcc.autor.ultimo_nome }}</h4>
+    <hr>
+    <h4>><b>{{ tcc.orientador.nome}}</b> {{ tcc.orientador.ultimo_nome }}</h4>
+    <a href="{{ tcc.orientador.link_do_curriculo_lattes }}">Currículo Lattes</a>
+    <hr>
+    <h4><b>{{ tcc.curso.nome }}</b> {{ tcc.curso.modalidade }}</h4>
+  </div>
+</nav>
+
+
+
+
+<div style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<div style="margin-left:300px">
+
+  <header id="portfolio">
+    <a href="#"><img src="" style="width:65px;" ></a>
+    <span ></span>
+    <div>
+    <h1><b>{{ tcc.titulo }}</b></h1>
+    <div>
+    </div>
+    </div>
+  </header>
+
+  <div style="margin-bottom:32px">
+    <h4><b>Resumo: </b>{{ tcc.resumo }}</h4>
+    Ano: {{ tcc.ano_do_documento}}
+    <p>Palavras chave: {{ tcc.palavras_chave }}</p>
+    <hr>
+
+    <h4>TRABALHO DE CONCLUSÃO DE CURSO</h4>
+    <a href="{{ tcc.arquivo_do_documento.url }}">
+      <button>
+        Baixar TCC
+      </button>
+    </a>
+
+{% endblock content %}
